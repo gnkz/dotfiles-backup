@@ -4,7 +4,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 Plug 'ekalinin/dockerfile.vim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'tag': 'v1.19' }
 Plug 'gregsexton/gitv', {'on': ['Gitv']}
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -12,16 +12,16 @@ Plug 'junegunn/fzf.vim'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'mhinz/vim-signify'
 Plug 'ncm2/ncm2'
-Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-go', { 'for': 'go' }
+Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'easymotion/vim-easymotion'
 Plug 'roxma/nvim-yarp'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sodapopcan/vim-twiggy'
-Plug 'srcery-colors/srcery-vim'
 Plug 'tomlion/vim-solidity', { 'for': 'solidity' }
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -29,6 +29,9 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale', { 'do': ':UpdateRemotePlugins' }
 Plug 'wincent/ferret'
+Plug 'morhetz/gruvbox'
+Plug 'majutsushi/tagbar'
+Plug 'jparise/vim-graphql'
 call plug#end()
 
 autocmd BufEnter * call ncm2#enable_for_buffer()
@@ -37,20 +40,21 @@ set hidden
 
 let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ }
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
-let g:signify_realtime = 1
+" let g:signify_realtime = 1
 
 set t_Co=256
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set background=dark
-colorscheme srcery
+colorscheme gruvbox
 let g:lightline = {
-      \ 'colorscheme': 'srcery',
+      \ 'colorscheme': 'gruvbox',
       \ }
 
 filetype on
@@ -68,7 +72,7 @@ set autoindent
 set smartindent
 set incsearch
 set hlsearch
-set autoread
+" set autoread
 set splitright
 set splitbelow
 set shortmess+=c
