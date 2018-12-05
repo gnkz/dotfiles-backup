@@ -1,6 +1,10 @@
 call plug#begin('~/.local/share/nvim/plugged')
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
 Plug 'ekalinin/dockerfile.vim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'tag': '*', 'for': 'go' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'tag': 'v1.19' }
 " Plug 'gregsexton/gitv', {'on': ['Gitv']}
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -14,33 +18,35 @@ Plug 'mhinz/vim-signify'
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'easymotion/vim-easymotion'
-Plug 'roxma/nvim-yarp'
+" Plug 'roxma/nvim-yarp'
 Plug 'scrooloose/nerdcommenter'
 " Plug 'scrooloose/nerdtree'
 " Plug 'sodapopcan/vim-twiggy'
 Plug 'tomlion/vim-solidity', { 'for': 'solidity' }
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
+" Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale', { 'do': ':UpdateRemotePlugins' }
 Plug 'wincent/ferret'
-" Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 " Plug 'majutsushi/tagbar'
 Plug 'jparise/vim-graphql'
-" Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ayu-theme/ayu-vim'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 call plug#end()
 
 " autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
+" set completeopt=noinsert,menuone,noselect
 set hidden
 
 let g:ale_typescript_tsserver_use_global = 1
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
+    \ }
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
@@ -54,20 +60,12 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let ayucolor="dark"
 colorscheme ayu
 
-let g:indent_guides_color_change_percent = 3
+let g:indent_guides_color_change_percent = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
 let g:lightline = {
-    \ 'colorscheme': 'one',
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'cocstatus', 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-    \ },
-    \ 'component_function': {
-    \   'gitbranch': 'fugitive#head',
-    \   'cocstatus': 'coc#status'
-    \ },
-    \ }
+      \ 'colorscheme': 'one',
+      \ }
 
 filetype on
 syntax enable
@@ -94,8 +92,7 @@ set expandtab
 set visualbell 
 set t_vb=
 set belloff=all
-set foldmethod=syntax
-
+set guioptions=
 let mapleader = "\<Space>"
 
 nnoremap <Space> <nop>
