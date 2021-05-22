@@ -8,6 +8,7 @@ require('completition')
 require('lsp')
 require('lsp.typescript')
 require('lsp.lua')
+require('lsp.json')
 require('lsp.efm')
 EOF
 
