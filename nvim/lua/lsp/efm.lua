@@ -1,16 +1,18 @@
 local eslint = {
-    lintCommand = "/home/gsanchez/.npm-packages/bin/eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}",
+    lintCommand = "eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}",
     lintIgnoreExitCode = true,
     lintStdin = true,
     lintFormats = {"%f(%l,%c): %tarning %m", "%f(%l,%c): %rror %m"},
-    formatCommand = "/home/gsanchez/.npm-packages/bin/eslint_d --stdin --stdin-filename ${INPUT} --fix-to-stdout",
+    formatCommand = "eslint_d --stdin --stdin-filename ${INPUT} --fix-to-stdout",
     formatStdin = true
 }
 
-local luaformat = {
-    formatCommand = "/home/gsanchez/.luarocks/bin/lua-format -i --single-quote-to-double-quote",
+local luaFormat = {
+    formatCommand = "lua-format -i --single-quote-to-double-quote",
     formatStdin = true
 }
+
+local jsonJq = {formatCommand = "jq .", formatStdin = true}
 
 require"lspconfig".efm.setup {
     on_attach = function(client, bufnr)
@@ -19,13 +21,11 @@ require"lspconfig".efm.setup {
 
     init_options = {documentFormatting = true, codeAction = true},
 
-    filetypes = {"lua", "typescript"},
+    filetypes = {"lua", "typescript", "json"},
 
     settings = {
         rootMarkers = {".git/"},
-        logFile = "/home/gsanchez/efm.log",
-        logLevel = 1,
-        languages = {lua = {luaformat}, typescript = {eslint}}
+        languages = {lua = {luaFormat}, typescript = {eslint}, json = {jsonJq}}
     }
 }
 
