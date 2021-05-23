@@ -1,7 +1,7 @@
-local utils = require("utils")
+local map = require"utils".map
 
-utils.map("n", "<leader>gs", ":G<CR>", {silent = true})
-utils.map("n", "<leader>gd", ":Gdiff<CR>", {silent = true})
-utils.map("n", "<leader>gb", ":Gblame<CR>", {silent = true})
-utils.map("n", "<leader>gP", ":G push<CR>", {silent = true})
-utils.map("n", "<leader>gp", ":G pull<CR>", {silent = true})
+map("n", "<leader>gs", ":G<CR>", {silent = true})
+map("n", "<leader>gd", ":Gdiff<CR>", {silent = true})
+map("n", "<leader>gb", ":Gblame<CR>", {silent = true})
+map("n", "<leader>gP", ":G push<CR>", {silent = true})
+map("n", "<leader>gp", ":G pull<CR>", {silent = true})
