@@ -3,6 +3,15 @@ set LUA_ROCKS_PACKAGES "$HOME/.luarocks"
 set PATH $PATH $NPM_PACKAGES/bin $LUA_ROCKS_PACKAGES/bin
 set MANPATH $NPM_PACKAGES/share/man $MANPATH
 
+alias v nvim
+alias vi nvim
+alias vim nvim
+alias sstart "sudo systemctl start"
+alias sstop "sudo systemctl stop"
+alias sstatus "sudo systemctl status"
+alias senable "sudo systemctl enable"
+alias sdisable "sudo systemctl disable"
+
 function __direnv_export_eval --on-event fish_prompt;
     "/usr/bin/direnv" export fish | source;
 
