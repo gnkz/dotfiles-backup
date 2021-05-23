@@ -10,6 +10,7 @@ require('lsp.typescript')
 require('lsp.lua')
 require('lsp.json')
 require('lsp.efm')
+require('fugitive')
 EOF
 
 " highlight Comment cterm=italic gui=italic
@@ -40,16 +41,6 @@ nnoremap <silent> <leader>ps <cmd>Clap grep<CR>
 nnoremap <silent> <leader>pb <cmd>Clap buffers<CR>
 nnoremap <silent> <leader>pg <cmd>Clap gfiles<CR>
 nnoremap <silent> <leader>// <cmd>Clap blines<CR>
-
-" Fugitive mappings
-nnoremap <silent> <leader>gs :G<CR>
-nnoremap <silent> <leader>gd :Gdiff<CR>
-nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gP :G push<CR>
-nnoremap <silent> <leader>gp :G pull<CR>
-
-" Undotree mappings
-nnoremap <silent> <leader>u :UndotreeToggle<CR>
 
 " CoC mappings
 " nmap <silent> gd <Plug>(coc-definition)
