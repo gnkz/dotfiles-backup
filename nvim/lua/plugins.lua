@@ -1,11 +1,8 @@
 return require("packer").startup(function(use)
-    -- Packer can manage itself
     use "wbthomason/packer.nvim"
 
-    -- Post-install/update hook with neovim command
     use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
 
-    -- Use dependency and run lua function after load
     use {
         "lewis6991/gitsigns.nvim",
         requires = {"nvim-lua/plenary.nvim"},
@@ -18,6 +15,8 @@ return require("packer").startup(function(use)
     }
 
     use {"liuchengxu/vim-clap", run = ":Clap install-binary!"}
+
+    use "tpope/vim-fugitive"
 
     use "neovim/nvim-lspconfig"
     use "hrsh7th/nvim-compe"
