@@ -1,7 +1,13 @@
+set FZF_DEFAULT_COMMAND "ag --hidden --ignore .git -f -g ''"
+set EDITOR "nvim"
+set GOPROXY "https://proxy.golang.org"
+set GOPATH (go env GOPATH)
 set NPM_PACKAGES "$HOME/.npm-packages"
 set LUA_ROCKS_PACKAGES "$HOME/.luarocks"
-set PATH $PATH $NPM_PACKAGES/bin $LUA_ROCKS_PACKAGES/bin
+set PATH $PATH $NPM_PACKAGES/bin $LUA_ROCKS_PACKAGES/bin $GOPATH/bin
 set MANPATH $NPM_PACKAGES/share/man $MANPATH
+
+set fish_greeting
 
 alias v nvim
 alias vi nvim
@@ -11,6 +17,11 @@ alias sstop "sudo systemctl stop"
 alias sstatus "sudo systemctl status"
 alias senable "sudo systemctl enable"
 alias sdisable "sudo systemctl disable"
+
+if status is-interactive
+and not set -q TMUX
+    exec tmux new-session -A -s hack
+end
 
 function __direnv_export_eval --on-event fish_prompt;
     "/usr/bin/direnv" export fish | source;
