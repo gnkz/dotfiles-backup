@@ -29,6 +29,7 @@ utils.opt("o", "visualbell", true)
 utils.opt("w", "cursorline", true)
 utils.opt("w", "linebreak", true)
 utils.opt("w", "relativenumber", true)
+utils.opt("w", "number", true)
 utils.opt("w", "signcolumn", "yes")
 
 cmd "au TextYankPost * lua vim.highlight.on_yank {on_visual = false}"

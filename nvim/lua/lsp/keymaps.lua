@@ -11,9 +11,10 @@ map("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", {silent = true})
 map("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", {silent = true})
 map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", {silent = true})
 map("n", "<leader>sh", "<cmd>Lspsaga hover_doc<CR>", {silent = true})
-map("i", "<TAB>", "pumvisible() ? '<C-n>' : '<TAB>'",
+--[[ map("i", "<TAB>", "pumvisible() ? '<C-n>' : '<TAB>'",
     {silent = true, expr = true})
 map("i", "<S-TAB>", "pumvisible() ? '<C-p>' : '<C-h>'",
     {silent = true, expr = true})
 map("i", "<C-Space>", "compe#complete()", {silent = true, expr = true})
-map("i", "<CR>", "compe#confirm('<CR>')", {silent = true, expr = true})
+map("i", "<CR>", "compe#confirm('<CR>')", {silent = true, expr = true}) ]]
+

@@ -1,16 +1,18 @@
 local lsp_installer_servers = require'nvim-lsp-installer.servers'
 
-local server_available, requested_server = lsp_installer_servers.get_server("tsserver")
+local server_available, requested_server = lsp_installer_servers.get_server("eslint")
 
 if server_available then
     requested_server:on_ready(function ()
         local opts = {
-			filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-
 			on_attach = function(client, bufnr)
-				client.resolved_capabilities.document_formatting = false
+				client.resolved_capabilities.document_formatting = true
 				require"lsp".common_on_attach(client, bufnr)
-			end
+			end,
+
+			settings = {
+				format = { enable = true },
+			}
 		}
         requested_server:setup(opts)
     end)

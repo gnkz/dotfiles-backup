@@ -1,7 +1,8 @@
 return require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
 
-    use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+    use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate", branch = "0.5-compat"}
+    -- use {"sheerun/vim-polyglot"}
 
     use {
         "lewis6991/gitsigns.nvim",
@@ -18,14 +19,18 @@ return require("packer").startup(function(use)
 
     use "tpope/vim-fugitive"
 
+    -- use {"neoclide/coc.nvim", branch = "release"}
+    use "hrsh7th/vim-vsnip"
+    use "hrsh7th/vim-vsnip-integ"
+
     use "neovim/nvim-lspconfig"
     use "hrsh7th/nvim-compe"
-    use "kabouzeid/nvim-lspinstall"
-    use "glepnir/lspsaga.nvim"
-    use "ray-x/lsp_signature.nvim"
+	use 'williamboman/nvim-lsp-installer'
+    -- use "glepnir/lspsaga.nvim"
+	use { 'tami5/lspsaga.nvim', branch = 'nvim51' }
     use "nvim-lua/lsp-status.nvim"
 
-    use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
+    use {"lukas-reineke/indent-blankline.nvim"}
 
     use "unblevable/quick-scope"
 
@@ -42,5 +47,8 @@ return require("packer").startup(function(use)
     }
 
     -- Theme
-    use "folke/tokyonight.nvim"
+	use {
+		"catppuccin/nvim",
+		as = "catppuccin"
+	}
 end)

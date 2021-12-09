@@ -1,4 +1,4 @@
-require"lspconfig".lua.setup {
+require"lspconfig".sumneko_lua.setup {
     on_attach = function(client, bufnr)
         require"lsp".common_on_attach(client, bufnr)
     end,

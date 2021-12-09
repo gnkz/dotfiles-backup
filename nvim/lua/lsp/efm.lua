@@ -1,3 +1,5 @@
+local lsp_installer_servers = require'nvim-lsp-installer.servers'
+
 local eslint = {
     lintCommand = "eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}",
     lintIgnoreExitCode = true,
@@ -14,18 +16,24 @@ local luaFormat = {
 
 local jsonJq = {formatCommand = "jq .", formatStdin = true}
 
-require"lspconfig".efm.setup {
-    on_attach = function(client, bufnr)
-        require"lsp".common_on_attach(client, bufnr)
-    end,
+local server_available, requested_server = lsp_installer_servers.get_server("efm")
+if server_available then
+    requested_server:on_ready(function ()
+        local opts = {
+			init_options = {documentFormatting = true, codeAction = true},
 
-    init_options = {documentFormatting = true, codeAction = true},
+			filetypes = {"lua", "typescript", "json"},
 
-    filetypes = {"lua", "typescript", "json"},
-
-    settings = {
-        rootMarkers = {".git/"},
-        languages = {lua = {luaFormat}, typescript = {eslint}, json = {jsonJq}}
-    }
-}
+			settings = {
+				rootMarkers = {".git/"},
+				languages = {lua = {luaFormat}, typescript = {eslint}, json = {jsonJq}}
+			}
+		}
+        requested_server:setup(opts)
+    end)
+    if not requested_server:is_installed() then
+        -- Queue the server to be installed
+        requested_server:install()
+    end
+end
 
