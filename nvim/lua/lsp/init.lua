@@ -14,6 +14,7 @@ lsp_installer.on_server_ready(function(server)
 	if server.name == "eslint" then
     	opts.on_attach = function (client, bufnr)
             client.resolved_capabilities.document_formatting = true
+			vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
             common_on_attach(client, bufnr)
         end
         opts.settings = {
