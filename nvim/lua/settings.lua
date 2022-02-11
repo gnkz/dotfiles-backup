@@ -4,8 +4,8 @@ local indent = 4
 
 vim.g.mapleader = " "
 
-cmd "syntax enable"
-cmd "filetype plugin indent on"
+cmd("syntax enable")
+cmd("filetype plugin indent on")
 
 utils.opt("b", "shiftwidth", indent)
 utils.opt("b", "smartindent", true)
@@ -32,12 +32,12 @@ utils.opt("w", "relativenumber", true)
 utils.opt("w", "number", true)
 utils.opt("w", "signcolumn", "yes")
 
-cmd "au TextYankPost * lua vim.highlight.on_yank {on_visual = false}"
-cmd "autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab"
-cmd "autocmd Filetype typescript setlocal ts=4 sw=4 sts=0 expandtab"
-cmd "autocmd Filetype json setlocal ts=2 sw=2 sts=0 expandtab"
-cmd "autocmd Filetype html setlocal ts=2 sw=2 expandtab"
-cmd "autocmd Filetype css setlocal ts=2 sw=2 sts=0 expandtab"
+cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}")
+cmd("autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab")
+cmd("autocmd Filetype typescript setlocal ts=4 sw=4 sts=0 expandtab")
+cmd("autocmd Filetype json setlocal ts=2 sw=2 sts=0 expandtab")
+cmd("autocmd Filetype html setlocal ts=2 sw=2 expandtab")
+cmd("autocmd Filetype css setlocal ts=2 sw=2 sts=0 expandtab")
 --[[
 highlight Comment cterm=italic gui=italic
 
