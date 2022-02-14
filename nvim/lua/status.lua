@@ -1,5 +1,5 @@
 require("lualine").setup({
-	options = { theme = "catppuccin" },
+	options = { theme = "moonlight" },
 	sections = {
 		lualine_a = { { "mode", lower = true } },
 		lualine_b = { { "filename", file_status = true, full_path = true }, "g:coc_status" },
