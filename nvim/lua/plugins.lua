@@ -68,5 +68,8 @@ return require("packer").startup(function(use)
 	})
 
 	-- Theme
-	use("shaunsingh/moonlight.nvim")
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+	})
 end)
