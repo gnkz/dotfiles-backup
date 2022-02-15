@@ -5,10 +5,8 @@ return require("packer").startup(function(use)
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
 	-- Statusline
-	use({
-		"hoob3rt/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	})
+	use("feline-nvim/feline.nvim")
+	use("kyazdani42/nvim-web-devicons")
 
 	-- Telescope
 	use({
@@ -53,7 +51,7 @@ return require("packer").startup(function(use)
 
 	use("lukas-reineke/indent-blankline.nvim")
 
-	use("unblevable/quick-scope")
+	use({ "ggandor/lightspeed.nvim", requires = { "tpope/vim-repeat" } })
 
 	use("windwp/nvim-autopairs")
 
