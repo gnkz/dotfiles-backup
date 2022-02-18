@@ -1,5 +1,4 @@
 local lsp_installer = require("nvim-lsp-installer")
-local lsp_status = require("lsp-status")
 
 require("null-ls").setup({
 	sources = {
@@ -7,10 +6,26 @@ require("null-ls").setup({
 	},
 })
 
-lsp_status.register_progress()
+local function common_on_attach(client, _)
+	-- Do something
+end
 
-local function common_on_attach(client, bufnr)
-	lsp_status.on_attach(client)
+local servers = {
+	"eslint",
+	"tsserver",
+	"dockerls",
+	"yamlls",
+	"sumneko_lua",
+	"jsonls",
+	"solidity_ls",
+}
+
+for _, name in pairs(servers) do
+	local server_is_found, server = lsp_installer.get_server(name)
+	if server_is_found and not server:is_installed() then
+		print("Installing " .. name)
+		server:install()
+	end
 end
 
 lsp_installer.on_server_ready(function(server)
@@ -25,6 +40,11 @@ lsp_installer.on_server_ready(function(server)
 			client.resolved_capabilities.document_formatting = false
 			common_on_attach(client, bufnr)
 		end
+		opts.settings = {
+			Lua = {
+				format = { enable = false },
+			},
+		}
 	end
 
 	if server.name == "eslint" then
@@ -47,7 +67,3 @@ lsp_installer.on_server_ready(function(server)
 
 	server:setup(opts)
 end)
-
-local lsp_config = {}
-
-return lsp_config
