@@ -9,6 +9,7 @@ telescope.setup({
 				["<C-B>"] = "git_create_branch",
 			},
 		},
+		file_ignore_patterns = { "node_modules" },
 	},
 	pickers = {
 		buffers = {
