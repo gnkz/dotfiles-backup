@@ -5,7 +5,6 @@ map("n", "<leader>h", ":wincmd h<CR>", { silent = true })
 map("n", "<leader>j", ":wincmd j<CR>", { silent = true })
 map("n", "<leader>k", ":wincmd k<CR>", { silent = true })
 map("n", "<leader>l", ":wincmd l<CR>", { silent = true })
-map("n", "<leader>ss", "<Plug>Lightspeed_omni_s", { noremap = false })
 
 -- Buffers
 map("n", "<C-K>", ":bnext<CR>", { silent = true })
