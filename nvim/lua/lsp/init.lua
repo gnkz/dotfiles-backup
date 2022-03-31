@@ -1,8 +1,10 @@
 local lsp_installer = require("nvim-lsp-installer")
+local null_ls = require("null-ls")
 
-require("null-ls").setup({
+null_ls.setup({
 	sources = {
-		require("null-ls").builtins.formatting.stylua,
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.code_actions.gitsigns,
 	},
 })
 
