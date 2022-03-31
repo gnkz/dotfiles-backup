@@ -9,5 +9,5 @@ return require("nvim-treesitter.configs").setup({
 		"solidity",
 	},
 	highlight = { enable = true },
-	indentation = { enable = true },
+	indent = { enable = true },
 })
