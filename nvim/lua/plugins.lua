@@ -66,8 +66,5 @@ return require("packer").startup(function(use)
 	})
 
 	-- Theme
-	use({
-		"catppuccin/nvim",
-		as = "catppuccin",
-	})
+	use("EdenEast/nightfox.nvim")
 end)
