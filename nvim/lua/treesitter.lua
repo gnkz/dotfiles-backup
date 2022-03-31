@@ -6,6 +6,7 @@ return require("nvim-treesitter.configs").setup({
 		"nix",
 		"lua",
 		"fish",
+		"solidity",
 	},
 	highlight = { enable = true },
 	indentation = { enable = true },
