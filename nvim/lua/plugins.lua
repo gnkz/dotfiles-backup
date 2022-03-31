@@ -51,8 +51,6 @@ return require("packer").startup(function(use)
 
 	use("lukas-reineke/indent-blankline.nvim")
 
-	use({ "ggandor/lightspeed.nvim", requires = { "tpope/vim-repeat" } })
-
 	use("windwp/nvim-autopairs")
 
 	use("b3nj5m1n/kommentary")
