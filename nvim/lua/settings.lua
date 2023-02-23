@@ -6,6 +6,7 @@ vim.g.mapleader = " "
 
 cmd("syntax enable")
 cmd("filetype plugin indent on")
+cmd("highlight WinSeparator guibg=None")
 
 utils.opt("b", "shiftwidth", indent)
 utils.opt("b", "smartindent", true)
@@ -31,6 +32,7 @@ utils.opt("w", "linebreak", true)
 utils.opt("w", "relativenumber", true)
 utils.opt("w", "number", true)
 utils.opt("w", "signcolumn", "yes")
+utils.opt("o", "laststatus", 3)
 
 cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}")
 cmd("autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab")

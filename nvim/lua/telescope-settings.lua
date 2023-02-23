@@ -21,6 +21,8 @@ telescope.setup({
 })
 telescope.load_extension("fzf")
 telescope.load_extension("file_browser")
+telescope.load_extension("session-lens")
+telescope.load_extension("gh")
 
 -- Keymaps
 local defaults = { silent = true, noremap = true }
@@ -35,5 +37,6 @@ map("n", "<leader>gb", "<cmd>Telescope git_branches<CR>", defaults)
 map("n", "<leader>pp", "<cmd>Telescope find_files<CR>", defaults)
 map("n", "<leader>ps", "<cmd>Telescope live_grep<CR>", defaults)
 map("n", "<leader>pb", "<cmd>Telescope buffers<CR>", defaults)
-map("n", "<leader>pg", "<cmd>Telescope git_files<CR>", defaults)
+map("n", "<leader>pg", "<cmd>Telescope git_status<CR>", defaults)
+map("n", "<leader>sl", "<cmd>Telescope session-lens search_session<CR>", defaults)
 map("n", "<leader>//", "<cmd>Telescope current_buffer_fuzzy_find<CR>", defaults)
