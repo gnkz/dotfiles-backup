@@ -1,11 +1,13 @@
 return {
 	{
-		"feline-nvim/feline.nvim",
+		"nvim-lualine/lualine.nvim",
 		dependencies = {
 			"kyazdani42/nvim-web-devicons",
 		},
 		config = function()
-			require("feline").setup({})
+			require("lualine").setup({
+				theme = "auto"
+			})
 		end
 	},
 }
