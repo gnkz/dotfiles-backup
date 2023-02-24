@@ -12,11 +12,11 @@ return {
 	"b3nj5m1n/kommentary",
 
 	{
-		"echasnovski/mini.nvim",
-		branch = "stable",
+		"kylechui/nvim-surround",
+		branch = "main",
 		config = function()
-			require("mini.surround").setup({})
-		end,
+			require("nvim-surround").setup()
+		end
 	},
 
 	{

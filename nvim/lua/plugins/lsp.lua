@@ -8,13 +8,31 @@ return {
 		"simrat39/rust-tools.nvim",
 		"folke/neodev.nvim",
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		{
+			"glepnir/lspsaga.nvim",
+			config = function()
+				require("lspsaga").setup({})
+			end
+		},
+		{
+			"folke/trouble.nvim",
+			config = function()
+				require("trouble").setup({})
+			end
+		}
 	},
 	keys = {
+		{ "<leader>ca", "<cmd>Lspsaga code_action<CR>" },
 		{ "gD",         "<cmd>lua vim.lsp.buf.declaration()<cr>" },
 		{ "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>" },
 		{ "[d",         "<cmd>lua vim.diagnostic.goto_prev()<cr>" },
 		{ "]d",         "<cmd>lua vim.diagnostic.goto_next()<cr>" },
-		{ "<leader>sh", "<cmd>lua vim.lsp.buf.hover()<cr>" }
+		{ "<leader>sh", "<cmd>lua vim.lsp.buf.hover()<cr>" },
+		{ "<leader>xq", "<cmd>TroubleToggle quickfix<cr>" },
+		{ "<leader>xl", "<cmd>TroubleToggle loclist<cr>" },
+		{ "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>" },
+		{ "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>" },
+		{ "<leader>xx", "<cmd>TroubleToggle<cr>" },
 	},
 	config = function()
 		require("neodev").setup({})
@@ -37,7 +55,7 @@ return {
 			"yamlls",
 			"lua_ls",
 			"jsonls",
-			"rust_analyzer"
+			"rust_analyzer",
 		}
 
 		masonconfig.setup({
